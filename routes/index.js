@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   
-  res.render('index',{title : "Index"});
+  res.render('index',{title : "Smart Restaurant API"});
 });
 
 module.exports = router;
