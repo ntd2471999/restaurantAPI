@@ -4,7 +4,7 @@ const pool = require('../../connectDB/connectDB');
 
 
 router.get('/getBillByTableId', (req,res) => {
-    var idTable = req.query.name;
+    var idTable = req.query.idTable;
   
     console.log(name);
     
