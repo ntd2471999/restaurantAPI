@@ -6,14 +6,22 @@ const pool = require('../../connectDB/connectDB');
 router.get('/getBillByTableId', (req,res) => {
     var idTable = req.query.idTable;
   
-  
-    
-      pool.query(`SELECT * FROM public."Bill" where "idTable" = ${idTable}`, (err, data) => {
+        if(idTable == null || idTable == undefined)
+        {
+            res.status(404).json({msg : "Error 404 error"});
+        }
+        else
+        {
+            pool.query(`SELECT * FROM public."Bill" where "idTable" = ${idTable}`, (err, data) => {
       
-       console.log(data);
-       
-        res.json({data : data.rows});
-      })
+                console.log(data);
+                
+                 res.status(200).json({data : data.rows});
+               })
+
+        }
+    
+     
   })
 
 module.exports = router;
