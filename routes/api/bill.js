@@ -11,7 +11,10 @@ router.get('/getBillByTableId',(req,res) => {
             res.json({data : res.rows});
         })
     }
-    res.status(404).json({msg : "id table not null"});
+    else{
+        res.status(404).json({msg : "id table not null"});
+    }
+    
    
 })
 
