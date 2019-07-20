@@ -2,20 +2,18 @@ var express = require('express');
 var router = express.Router();
 const pool = require('../../connectDB/connectDB');
 
-router.get('/getBillByTableId',(req,res) => {
-    var id = req.query.id;
-    if(id != null)
-    {
-      
-       pool.query(`SELECT * FROM public."Bill" where "idTable" = $1`,[id], (err, res) => {
-            res.json({data : res.rows});
-        })
-    }
-    else{
-        res.status(404).json({msg : "id table not null"});
-    }
+
+router.get('/getBillByTableId', (req,res) => {
+    var idTable = req.query.name;
+  
+    console.log(name);
     
-   
-})
+      pool.query(`SELECT * FROM public."Bill" where "idTable" = ${idTable}`, (err, data) => {
+      
+       console.log(data);
+       
+        res.json({data : data.rows});
+      })
+  })
 
 module.exports = router;
