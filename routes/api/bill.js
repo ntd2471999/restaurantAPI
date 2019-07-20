@@ -6,7 +6,7 @@ const pool = require('../../connectDB/connectDB');
 router.get('/getBillByTableId', (req,res) => {
     var idTable = req.query.idTable;
   
-    console.log(name);
+  
     
       pool.query(`SELECT * FROM public."Bill" where "idTable" = ${idTable}`, (err, data) => {
       
