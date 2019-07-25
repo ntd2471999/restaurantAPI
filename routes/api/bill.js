@@ -3,6 +3,13 @@ var router = express.Router();
 const pool = require('../../connectDB/connectDB');
 
 
+
+/*
+    @URL = api/bill/getBillByTableId
+    @prams = idTable (int)
+    @method = GET
+    @res = data[]
+*/
 router.get('/getBillByTableId', (req,res) => {
     var idTable = req.query.idTable;
   
@@ -20,8 +27,6 @@ router.get('/getBillByTableId', (req,res) => {
                })
 
         }
-    
-     
   })
 
 module.exports = router;

@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 const pool = require('../../connectDB/connectDB');
 
+/*
+    @URL = api/Food/getAllFood
+    @method = GET
+    @res = data[]
+*/
 router.get('/getAllFood', (req,res) => {
     pool.query('SELECT f.* FROM public."Food" f, public."typeFood" tf where f.type = tf.id', (err, data) => {
        
@@ -9,6 +14,12 @@ router.get('/getAllFood', (req,res) => {
       })
 })
 
+/*
+    @URL = api/Food/getFoodByType
+    @method = GET
+    @params = type
+    @res = data[]
+*/
 router.get('/getFoodByType', (req,res) => {
     var type = req.query.type;
 
@@ -18,6 +29,12 @@ router.get('/getFoodByType', (req,res) => {
       })
 })
 
+/*
+    @URL = api/Food/getFoodByType
+    @method = GET
+    @params = keyword
+    @res = data[]
+*/
 router.get('/getFoodByKeyword', (req,res) => {
   var name = req.query.name;
 
